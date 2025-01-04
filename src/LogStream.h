@@ -13,6 +13,8 @@
 #include <xiaoLog/exports.h>
 
 #include <string>
+#include <string.h>
+#include <assert.h>
 
 namespace xiaoLog
 {
@@ -151,6 +153,19 @@ namespace xiaoLog
         }
 
         self &operator<<(char *str)
+        {
+            if (str)
+            {
+                append(str, strlen(str));
+            }
+            else
+            {
+                append("(null)", 6);
+            }
+            return *this;
+        }
+
+        self &operator<<(const char *str)
         {
             if (str)
             {

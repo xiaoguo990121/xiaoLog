@@ -10,6 +10,10 @@
 
 #include "LogStream.h"
 #include <assert.h>
+#include <algorithm>
+#include <stdint.h>
+#include <limits>
+#include <iostream>
 
 using namespace xiaoLog;
 using namespace xiaoLog::detail;
@@ -192,7 +196,7 @@ LogStream &LogStream::operator<<(const void *p)
 LogStream &LogStream::operator<<(const double &v)
 {
     constexpr static int kMaxNumericSize = 32;
-    if (!exBuffer_.empty())
+    if (exBuffer_.empty())
     {
         if (buffer_.avail() >= kMaxNumericSize)
         {
@@ -230,7 +234,7 @@ LogStream &LogStream::operator<<(const long double &v)
     }
     auto oldLen = exBuffer_.length();
     exBuffer_.resize(oldLen + kMaxNumericSize);
-    int len = snprintf(&(exBuffer_[oldLen]), kMaxNumericSize, ".12Lg", v);
+    int len = snprintf(&(exBuffer_[oldLen]), kMaxNumericSize, "%.12Lg", v);
     exBuffer_.resize(oldLen + len);
     return *this;
 }

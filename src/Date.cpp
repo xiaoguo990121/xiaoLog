@@ -13,6 +13,9 @@
 #ifndef _WIN32
 #include <sys/time.h>
 #endif
+#include <cstdlib>
+#include <string.h>
+#include <iostream>
 
 namespace xiaoLog
 {
