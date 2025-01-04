@@ -50,6 +50,8 @@ set(XIAO_SOURCES
     src/NonCopyable.h
     src/Logger.cpp
     src/Logger.h
+    src/AsyncFileLogger.h
+    src/AsyncFileLogger.cpp
 )
 
 target_include_directories(
