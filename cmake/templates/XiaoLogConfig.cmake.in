@@ -1,0 +1,25 @@
+#[[
+# - Config file for the XiaoLog package
+# It defines the following variables
+#  XIAOLOG_INCLUDE_DIRS - include directories for XiaoLog
+#  XIAOLOG_LIBRARIES    - libraries to link against
+#  XIAOLOG_FOUND
+# This module defines the following IMPORTED target:
+# XiaoLog::XiaoLog
+#]]
+
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR})
+#if(@spdlog_FOUND@)
+#    find_dependency(spdlog)
+#endif
+
+get_filename_component(XIAOLOG_CMAEK_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+if(NOT TARGET XiaoLog::XiaoLog)
+    include("${XIAOLOG_CMAEK_DIR}/XiaoLogTargets.cmake")
+endif()
+
+get_target_property(XIAOLOG_INCLUDE_DIRS XiaoLog::XiaoLog INTERFACE_INCLUDE_DIRECTORIES)
+set(XIAOLOG_LIBRARIES XiaoLog::XiaoLog)

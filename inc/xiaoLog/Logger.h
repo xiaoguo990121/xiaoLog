@@ -10,9 +10,9 @@
 
 #pragma once
 
-#include <src/NonCopyable.h>
-#include <src/Date.h>
-#include <src/LogStream.h>
+#include <xiaoLog/NonCopyable.h>
+#include <xiaoLog/Date.h>
+#include <xiaoLog/LogStream.h>
 #include <xiaoLog/exports.h>
 #include <functional>
 #include <vector>

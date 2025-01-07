@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include "NonCopyable.h"
+#include <xiaoLog/NonCopyable.h>
 #include <xiaoLog/exports.h>
 
 #include <string>

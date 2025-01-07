@@ -8,7 +8,7 @@
  *
  */
 
-#include "LogStream.h"
+#include <xiaoLog/LogStream.h>
 #include <assert.h>
 #include <algorithm>
 #include <stdint.h>

@@ -11,8 +11,8 @@
 #pragma once
 
 #include <xiaoLog/exports.h>
-#include <src/NonCopyable.h>
-#include <src/Date.h>
+#include <xiaoLog/NonCopyable.h>
+#include <xiaoLog/Date.h>
 #include <memory>
 #include <queue>
 #include <mutex>
