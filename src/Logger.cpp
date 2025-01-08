@@ -83,6 +83,7 @@ static thread_local char lastTimeString_[32] = {0};
 #ifdef __linux__
 static thread_local pid_t threadId_{0};
 #else
+static thread_local uint64_t threadId_{0};
 #endif
 
 void Logger::formatTime()
@@ -137,6 +138,10 @@ void Logger::formatTime()
     if (threadId_ == 0)
         threadId_ = static_cast<pid_t>(::syscall(SYS_gettid));
 #else
+    if (threadId_ == 0)
+    {
+        pthread_threadid_np(NULL, &threadId_);
+    }
 #endif
     logStream_ << threadId_;
 }
